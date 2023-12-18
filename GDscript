@@ -1,0 +1,37 @@
+# Abstract class
+class Animal:
+   var name
+
+   func _init(name):
+       self.name = name
+
+   # Abstract method
+   func make_sound():
+       pass
+
+# Inheritance
+class Dog extends Animal:
+   func make_sound():
+       return "Woof!"
+
+# Encapsulation
+class Cat extends Animal:
+   var _sound
+
+   func _init(name, sound):
+       ._init(name)
+       self._sound = sound
+
+   func make_sound():
+       return self._sound
+
+# Polymorphism
+func print_sound(animal):
+   print(animal.make_sound())
+
+# Usage
+var dog = Dog.new("Rex")
+var cat = Cat.new("Whiskers", "Meow")
+
+print_sound(dog) # Outputs: Woof!
+print_sound(cat) # Outputs: Meow
